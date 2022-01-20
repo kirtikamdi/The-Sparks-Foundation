@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="customer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="margin-left: 20px;">MODERN BANK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="customer.html">Customers Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bank.html">About Us</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+      
+      <!-- Modal send money -->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Money</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                        <div class="input-group mb-3">
+                        <input type="text" id="enterSName" class="form-control" placeholder="Sender's username"
+                            aria-label="Sender's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@email.com</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@email.com</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rs</span>
+                        </div>
+                        <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                            aria-label="Amount">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal">Send
+                    Money</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal transaction History-->
+<div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Transaction History</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ol id="transaction-history-body">
+
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <section id="main" class="coloured-section">
+    <div class="my-info text-center">
+
+        <button class="btn btn-info" data-toggle="modal" data-target="#sendMoney">Send Money</button>
+        <a class="btn btn-info" href="history.html" data-toggle="modal" data-target="#transactionHistory">See All Transactions</a>
+    </div>
+    <div class="cust" style="background-color: #ade8f4;">
+      <br>
+    <div class="row">
+        <div class="col-lg-4">
+    <div class="card" style="width: 18rem; margin-left: 50px;">
+      <div class="card-body">
+        <h5 class="card-title">jose wilson</h5>
+        <h6 class="card-subtitle mb-2 text-muted">jose@email.com</h6>
+        <h6>Account No.:3455XXXXXX</h6>
+        <h5>Balance:</h5>
+        <p id="aditiBankBalance">10000</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">adelina lopez</h5>
+          <h6 class="card-subtitle mb-2 text-muted">adelina@email.com</h6>
+          <h6>Account No.:3017XXXX6X</h6>
+          <h5>Balance:</h5>
+          <p id="akankshaBankBalance">2500</p>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">elanie thomas</h5>
+              <h6 class="card-subtitle mb-2 text-muted">elanie@email.com</h6>
+              <h6>Account No.:3293XXXX1X</h6>
+              <h5>Balance:</h5>
+              <p id="akashBankBalance">50000</p>
+            </div>
+            </div>
+          </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-4">
+  <div class="card" style="width: 18rem; margin-left: 50px;">
+    <div class="card-body">
+      <h5 class="card-title">oliver taylor</h5>
+      <h6 class="card-subtitle mb-2 text-muted">oliver@email.com</h6>
+      <h6>Account No.:3516XXXX6X</h6>
+      <h5>Balance:</h5>
+      <p id="bharathBankBalance">11000</p>
+    </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">noah smith</h5>
+        <h6 class="card-subtitle mb-2 text-muted">noah@email.com</h6>
+        <h6>Account No.:3529XXXX7X</h6>
+        <h5>Balance:</h5>
+        <p id="chaitraBankBalance">9000</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">sophia jhonson</h5>
+            <h6 class="card-subtitle mb-2 text-muted">sophia@email.com</h6>
+            <h6>Account No.:3014XXXX8X</h6>
+            <h5>Balance:</h5>
+            
+            <p id="dishaBankBalance">12000</p>
+          </div>
+          </div>
+        </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-lg-4">
+  <div class="card" style="width: 18rem; margin-left: 50px;">
+    <div class="card-body">
+      <h5 class="card-title">antonio williams</h5>
+      <h6 class="card-subtitle mb-2 text-muted">antonio@email.com</h6>
+      <h6>Account No.:3621XXXX0X</h6>
+      <h5>Balance:</h5>
+      <p id="harishBankBalance">80000</p>
+    </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">devin brown</h5>
+        <h6 class="card-subtitle mb-2 text-muted">devin@email.com</h6>
+        <h6>Account No.:3917XXXX3X</h6>
+        <h5>Balance:</h5>
+        <p id="mamataBankBalance">10000</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">tao jones</h5>
+            <h6 class="card-subtitle mb-2 text-muted">tao@email.com</h6>
+            <h6>Account No.:3829XXXX9X</h6>
+            <h5>Balance:</h5>
+            <p id="manjuBankBalance">5000</p>
+          </div>
+          </div>
+        </div>
+  </div>
+  <br>
+</div>
+    
+ <script src="script.js"></script>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+ <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+
+
+</body>
+</html>
